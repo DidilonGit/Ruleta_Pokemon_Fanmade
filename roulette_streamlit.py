@@ -65,7 +65,7 @@ resultados = st.session_state.get("resultados", {})
 if st.button("🔁 Reiniciar"):
     st.session_state.fase = 0
     st.session_state.resultados = {}
-    st.experimental_rerun()
+    st.rerun()
 
 if fase == 0:
     st.subheader("1. Categoría (BY)")
@@ -74,7 +74,7 @@ if fase == 0:
         st.session_state.resultados["Categoría"] = resultado
         st.session_state.fase = 1
         st.session_state.last_draw = ("BY", ruleta_by, [idx])
-        st.experimental_rerun()
+        st.rerun()
 
 elif fase == 1:
     st.subheader("2. Número de formas (MANY)")
@@ -83,7 +83,7 @@ elif fase == 1:
         st.session_state.resultados["Formas"] = resultado
         st.session_state.fase = 2
         st.session_state.last_draw = ("MANY", ruleta_many, [idx])
-        st.experimental_rerun()
+        st.rerun()
 
 elif fase == 2:
     st.subheader("3. Tipos (TYPING)")
@@ -93,7 +93,7 @@ elif fase == 2:
         indices = [ruleta_typing.index(t) for t in tipos]
         st.session_state.fase = 3
         st.session_state.last_draw = ("TYPING", ruleta_typing, indices)
-        st.experimental_rerun()
+        st.rerun()
 
 elif fase == 3:
     st.subheader("4. Mecánica especial (POKEMON)")
@@ -102,7 +102,7 @@ elif fase == 3:
         st.session_state.resultados["Mecánica"] = resultado
         st.session_state.fase = 4
         st.session_state.last_draw = ("POKEMON", ruleta_pokemon, [idx])
-        st.experimental_rerun()
+        st.rerun()
 
 elif fase == 4:
     st.success("✅ Has terminado todas las tiradas.")
