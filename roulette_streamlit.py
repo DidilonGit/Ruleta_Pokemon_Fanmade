@@ -7,6 +7,13 @@ import matplotlib.pyplot as plt
 
 st.set_page_config(page_title="Ruleta Pokémon", page_icon="🎡")
 
+# --- Inicializar estado ---
+if "fase" not in st.session_state:
+    st.session_state.fase = 0
+
+if "resultados" not in st.session_state:
+    st.session_state.resultados = {}
+
 # --- Opciones en español ---
 ruleta_by = [
     "Pokémon normal", "Ultracriatura", "Evolución convergente",
